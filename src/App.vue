@@ -15,8 +15,6 @@ export default {
     Layout
   },
 
-  data: () => ({
-    page: "news"
-  })
+  data: () => ({})
 };
 </script>
