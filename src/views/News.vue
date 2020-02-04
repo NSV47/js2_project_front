@@ -21,7 +21,10 @@
 </template>
 
 <script>
-import { mapState, mapActions} from 'vuex';
+let a = [1, 2, 3];
+console.log(a);
+console.log(...a);
+import { mapState, mapActions} from "vuex";
 export default {
   name: "news",
   data: () => ({
@@ -35,7 +38,10 @@ export default {
     //   return this.$store.state.news
     // }
     // место этого после импорта mapState и mapActions теперь можо написать
-    ...mapState(['news']) // этот news из store/index.js из объекта Vuex.Store -> state
+    // ...mapState(['news']) // этот news из store/index.js из объекта Vuex.Store -> state
+    ...mapState({
+      news: state => state.news.news
+    })
     // это подключение state из vuex и получение нужных ключей
   },
   methods: {
