@@ -1,3 +1,4 @@
+//import api from '@/api';
 export default {
     state: {
         chats: [
@@ -18,7 +19,7 @@ export default {
                 text: "Проба пробочка!"
             },
             {
-                id: 0,
+                id: 1,
                 from: 2,
                 chat: 0,
                 text: "на связи пробочка"
@@ -34,20 +35,18 @@ export default {
     },
     
     mutations: {
-        setNews(state, news) {
+        setMessages(state, news) {
             state.news = news
         }
     },
     actions: {
-        addNews({ state, commit }, article) {
-            // отправляем овость на сервер
-            // ждем ответа
-            // вызываем мутацию
-            let newNews = state.news.concat() // создание копии массива
-            // State можно изменять только в mutations
-            newNews.push(article) // добавляем новую новость в конец массива
-            commit('setNews', newNews) // изменяем состояние
-            // для того чтобы вызвать мутацию необходимо использовать commit
-        }
+        // getMessages({ state, commit }){
+
+        // },
+        // sendMessage({ state, commit }, message) {
+        //     // отправляем овость на сервер
+        //     // ждем ответа
+        //     // вызываем мутацию
+        // }
     }
 };

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2>Новости {{ val }}</h2>
+    <h2>Новости {{ val }} <v-btn @click="getNews">Обновить</v-btn></h2>
     <v-card v-for="(item, key) in news" :key="key" style="margin:20px">
       <v-img :src="item.img"></v-img>
 
@@ -21,36 +21,36 @@
 </template>
 
 <script>
-let a = [1, 2, 3];
-console.log(a);
-console.log(...a);
-import { mapState, mapActions} from "vuex";
+// let a = [1, 2, 3];
+// console.log(a);
+// console.log(...a);
+import { mapState, mapActions } from "vuex";
 export default {
-  name: "news",
+  name: "News",
   data: () => ({
     number: 2
   }),
   computed: {
-    val(){
-      return this.number*2 // четверка в заголовке просто чтобы показать как работает
-    },
     // news(){
     //   return this.$store.state.news
     // }
     // место этого после импорта mapState и mapActions теперь можо написать
-    // ...mapState(['news']) // этот news из store/index.js из объекта Vuex.Store -> state
-    ...mapState({
-      news: state => state.news.news
-    })
+    ...mapState(["news"]), // этот news из store/index.js из объекта Vuex.Store -> state
+    // ...mapState({
+    //   news: state => state.news.news
+    // }),
     // это подключение state из vuex и получение нужных ключей
+    val() {
+      return this.number * 2; // четверка в заголовке просто чтобы показать как работает
+    }
   },
   methods: {
     // это подключение actions из vuex и полученнние нужных ключей
-    ...mapActions(["addNews"]),
-    addArticle(){
+    ...mapActions(["addNews", "getNews"]),
+    addArticle() {
       let article = {
-        title: 'сделано непонятно как',
-        text: 'vuex beautyful'
+        title: "сделано непонятно как",
+        text: "vuex beautyful"
       };
 
       // чтобы вызвать изменение
