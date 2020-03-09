@@ -2,7 +2,7 @@ import Vue from "vue";
 import Vuex from "vuex";
 
 import news from "./modules/news.js";
-import chat from "./modules/chat"
+import chat from "./modules/chat";
 
 Vue.use(Vuex);
 

@@ -14,9 +14,10 @@
       <v-card-actions>
         <v-btn color="orange">Share</v-btn>
         <v-btn color="orange">Explore</v-btn>
+        <v-btn color="orange" @click="deleteNews">Delete</v-btn>
       </v-card-actions>
     </v-card>
-    <v-btn color="orange" @click="addArticle">добавить новость</v-btn>
+    <v-btn color="orange" @click="addArticle">Добавить новость</v-btn>
   </div>
 </template>
 
@@ -28,14 +29,20 @@ import { mapState, mapActions } from "vuex";
 export default {
   name: "News",
   data: () => ({
-    number: 2
+    number: 2,
+    preview: "",
+    title: "",
+    text: ""
   }),
   computed: {
     // news(){
     //   return this.$store.state.news
     // }
     // место этого после импорта mapState и mapActions теперь можо написать
-    ...mapState(["news"]), // этот news из store/index.js из объекта Vuex.Store -> state
+    //...mapState(["news"]), // этот news из store/index.js из объекта Vuex.Store -> state
+    ...mapState({
+      news: state => state.news.news
+    }),
     // ...mapState({
     //   news: state => state.news.news
     // }),
@@ -46,7 +53,7 @@ export default {
   },
   methods: {
     // это подключение actions из vuex и полученнние нужных ключей
-    ...mapActions(["addNews", "getNews"]),
+    ...mapActions(["addNews", "getNews", "deleteNews"]),
     addArticle() {
       let article = {
         title: "сделано непонятно как",
@@ -57,6 +64,7 @@ export default {
       // this.$store.dispatch('addNews', article); // dispatch это вызов action
       // теперь после ...mapActions можно написать
       this.addNews(article);
+      // this.deleteNews(article);
     }
   }
 };

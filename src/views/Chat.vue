@@ -1,7 +1,8 @@
 <template>
   <div>
     <h2>Чат</h2>
-    <div v-for="chat in chats" :key="chat.id">{{ chat }}
+    <div v-for="chat in chats" :key="chat.id">
+      {{ chat }}
       <v-btn color="orange" @click="chatId = chat.id">Открыть чат</v-btn>
     </div>
     <h2>Сообщения</h2>
@@ -16,10 +17,10 @@
 </template>
 
 <script>
-import { mapState, mapGetters, mapActions } from 'vuex'
+import { mapState, mapGetters, mapActions } from "vuex";
 export default {
   name: "Chat",
-  data:()=>({
+  data: () => ({
     chatId: -1
   }),
   computed: {

@@ -1,8 +1,8 @@
-import axios from 'axios'
+import axios from "axios";
 
-export default{
-    urls: {
-        news: '/news'
-    },
-    axios: axios
-}
+export default {
+  urls: {
+    news: "/news"
+  },
+  axios: axios
+};
